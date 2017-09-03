@@ -23,10 +23,12 @@
 
                     <tbody>
                         @foreach ($directories as $dir)
-                            <tr onclick="window.location = '{{ route("guides.view", [trim("{$pwd}/{$dir}", "/")], false) }}'" style="cursor: pointer;">
+                            <tr>
                                 <td>
-                                    <i class="fa fa-fw fa-folder" aria-hidden="true"></i>
-                                    {{ $dir }}
+                                    <a href="{{ route("guides.view", [trim("{$pwd}/{$dir}", "/")], false) }}" class="btn btn-block btn-link btn-text text-left-force no-padding">
+                                        <i class="fa fa-fw fa-folder" aria-hidden="true"></i>
+                                        {{ $dir }}
+                                    </a>
                                 </td>
 
                                 <td>
@@ -40,10 +42,12 @@
                         @endforeach
 
                         @foreach ($files as $file)
-                            <tr onclick="window.location = '{{ route("guides.download", [trim("{$pwd}/{$file["name"]}", "/")], false) }}'" style="cursor: pointer;">
+                            <tr>
                                 <td>
-                                    <i class="fa fa-fw fa-file-text-o" aria-hidden="true"></i>
-                                    {{ $file["name"] }}
+                                    <a href="{{ route("guides.download", [trim("{$pwd}/{$file["name"]}", "/")], false) }}" class="btn btn-block btn-link btn-text text-left-force no-padding">
+                                        <i class="fa fa-fw fa-file-text-o" aria-hidden="true"></i>
+                                        {{ $file["name"] }}
+                                    </a>
                                 </td>
 
                                 <td>
@@ -57,6 +61,16 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                <div class="panel-footer">
+                    @if ($previous_dir !== $pwd)
+                        <a href="{{ route("guides.view", [$previous_dir], false) }}">
+                            <i class="fa fa-fw fa-arrow-left" aria-hidden="true"></i>
+                            &nbsp;
+                            Previous Page
+                        </a>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

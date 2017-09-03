@@ -73,8 +73,12 @@ class GuideController extends Controller
             ];
         })->values();
 
-        return view("guides", compact("pwd", "directories", "files"));
-        return compact("directories", "files");
+        $previous_dir = explode("/", $pwd);
+        array_pop($previous_dir);
+        $previous_dir = implode("/", $previous_dir);
+        $previous_dir = trim($previous_dir, "/");
+
+        return view("guides", compact("pwd", "previous_dir", "directories", "files"));
     }
 
     protected function human_filesize($file, $decimals = 2) {
