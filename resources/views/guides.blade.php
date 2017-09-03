@@ -10,7 +10,14 @@
         <div class="col-md-8 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h4>Guides and Other Documents</h4>
+                    <h4>
+                        Guides and Other Documents
+
+                        @if (!empty($dir_name))
+                            <br>
+                            <small>{{ $dir_name }}</small>
+                        @endif
+                    </h4>
                 </div>
 
                 <table class="table table-hover">
@@ -66,7 +73,7 @@
 
                 <div class="panel-footer">
                     @if ($previous_dir !== $pwd)
-                        <a href="{{ route("guides.view", [$previous_dir], false) }}" class="btn btn-link btn-text">
+                        <a href="{{ route("guides.view", [$previous_dir], false) }}" class="btn btn-link btn-text no-padding">
                             <i class="fa fa-fw fa-arrow-left" aria-hidden="true"></i>
                             &nbsp;
                             Previous Page
