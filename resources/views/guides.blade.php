@@ -9,7 +9,9 @@
 
         <div class="col-md-8 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Guides and Other Documents</div>
+                <div class="panel-heading text-center">
+                    <h4>Guides and Other Documents</h4>
+                </div>
 
                 <table class="table table-hover">
                     <thead>
