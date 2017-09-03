@@ -20,6 +20,10 @@ class GuideController extends Controller
             "auth",
             "member",
         ]);
+
+        if (!file_exists(storage_path("app/guides"))) {
+            mkdir(storage_path("app/guides"), 775, true);
+        }
     }
 
     public function index()
