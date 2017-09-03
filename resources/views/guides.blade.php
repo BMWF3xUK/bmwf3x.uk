@@ -66,7 +66,7 @@
 
                 <div class="panel-footer">
                     @if ($previous_dir !== $pwd)
-                        <a href="{{ route("guides.view", [$previous_dir], false) }}">
+                        <a href="{{ route("guides.view", [$previous_dir], false) }}" class="btn btn-link btn-text">
                             <i class="fa fa-fw fa-arrow-left" aria-hidden="true"></i>
                             &nbsp;
                             Previous Page
