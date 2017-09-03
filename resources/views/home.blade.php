@@ -15,10 +15,13 @@
                     <p>You are logged in!</p>
                     <br>
                     <p>Is a Member?? {{ auth()->user()->is_member ? "YES" : "NO" }}</p>
-                    <br>
-                    <pre><code>{{ json_encode(auth()->user(), JSON_PRETTY_PRINT) }}</code></pre>
-                    <br>
-                    <pre><code>{{ json_encode(auth()->user()->member, JSON_PRETTY_PRINT) }}</code></pre>
+
+                    @if (!app()->environment("production"))
+                        <br>
+                        <pre><code>{{ json_encode(auth()->user(), JSON_PRETTY_PRINT) }}</code></pre>
+                        <br>
+                        <pre><code>{{ json_encode(auth()->user()->member, JSON_PRETTY_PRINT) }}</code></pre>
+                    @endif
                 </div>
             </div>
         </div>
