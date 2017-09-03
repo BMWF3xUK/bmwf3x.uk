@@ -15,7 +15,7 @@
 
                         @if (!empty($dir_name))
                             <br>
-                            <small>{{ $dir_name }}</small>
+                            <small>&rdquo;{{ $dir_name }}&ldquo;</small>
                         @endif
                     </h4>
                 </div>
