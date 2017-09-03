@@ -27,9 +27,27 @@ class GuideController extends Controller
         return $this->getDirectoryContents();
     }
 
-    public function view($dir)
+    public function view($catchall)
     {
-        return $this->getDirectoryContents("/{$dir}");
+        return $this->getDirectoryContents("/{$catchall}");
+    }
+
+    public function download($catchall)
+    {
+        $directory = explode("/", $catchall);
+        $filename = array_pop($directory);
+        $directory = implode("/", $directory);
+        $directory = storage_path("app/guides/{$directory}");
+
+        if (!file_exists($directory)) {
+            return app()->abort(404, "Folder does not exist...");
+        }
+
+        if (!file_exists("{$directory}/{$filename}")) {
+            return app()->abort(404, "File does not exist...");
+        }
+
+        return response()->download("{$directory}/{$filename}", $filename);
     }
 
     protected function getDirectoryContents($dir = null) {

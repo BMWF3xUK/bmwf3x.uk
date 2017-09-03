@@ -50,6 +50,6 @@ Route::group([
     "as" => "guides.",
 ], function() {
     Route::get("/", "GuideController@index")->name("index");
-    Route::get("download/{catchall}", "GuideController@index")->name("download")->where("catchall", "(.*)");
+    Route::get("download/{catchall}", "GuideController@download")->name("download")->where("catchall", "(.*)");
     Route::get("{catchall}", "GuideController@view")->name("view")->where("catchall", "(.*)");
 });
