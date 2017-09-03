@@ -34,6 +34,7 @@ class GuideController extends Controller
 
     protected function getDirectoryContents($dir = null) {
         $directory = storage_path("app/guides{$dir}");
+        $pwd = trim($dir, "/");
 
         $directories = File::directories($directory);
         $directories = collect($directories)->transform(function($directory) {
@@ -44,21 +45,22 @@ class GuideController extends Controller
         $files = collect($files)->transform(function($file) {
             return [
                 "name" => basename($file),
-                "modified_at" => with(new Carbon)->timestamp(filemtime($file))->toCookieString(),
-                // "modified_at" => with(new Carbon)->timestamp(filemtime($file)),
+                // "modified_at" => with(new Carbon)->timestamp(filemtime($file))->toCookieString(),
+                "modified_at" => with(new Carbon)->timestamp(filemtime($file)),
                 "size" => $this->human_filesize($file),
             ];
         })->values();
 
+        return view("guides", compact("pwd", "directories", "files"));
         return compact("directories", "files");
     }
 
     protected function human_filesize($file, $decimals = 2) {
         $bytes = filesize($file);
-        $sz = " KMGTP";
+        $sz = " kmgtp";
         $factor = floor((strlen($bytes) - 1) / 3);
         $descriptor = @$sz[$factor];
-        $descriptor = trim($descriptor) . "B";
+        $descriptor = trim($descriptor) . "b";
 
         return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . $descriptor;
     }
