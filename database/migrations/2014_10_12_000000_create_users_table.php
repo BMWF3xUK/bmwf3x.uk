@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->dateTime("token_expires_at")->index()->nullable();
             $table->string("nickname")->index()->nullable();
             $table->string("name")->index();
-            $table->string("email")->unique()->index();
+            $table->string("email")->index()->nullable();
             $table->string("avatar")->index();
             $table->string("avatar_original")->index();
             $table->rememberToken();
