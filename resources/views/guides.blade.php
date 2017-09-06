@@ -17,6 +17,12 @@
                             <br>
                             <small>&rdquo;{{ $dir_name }}&ldquo;</small>
                         @endif
+
+                        <br>
+                        <br>
+                        <small>Some guides/info can lead to problems with cars if done incorrectly.</small>
+                        <br>
+                        <small>BMW F3x UK takes no responsibilty, and information is provided as is, and to the owners own risk.</small>
                     </h4>
                 </div>
 
