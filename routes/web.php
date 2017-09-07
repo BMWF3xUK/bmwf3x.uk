@@ -44,6 +44,7 @@ Route::group([
 });
 
 Route::get("/", "HomeController@index")->name("home");
+Route::get("donate", "HomeController@donate")->name("donate");
 
 Route::group([
     "prefix" => "guides",
