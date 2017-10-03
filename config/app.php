@@ -231,7 +231,7 @@ return [
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Partyline' => Wilderborn\Partyline\Facade::class,
-        'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
+        // 'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
 
     ],
 
