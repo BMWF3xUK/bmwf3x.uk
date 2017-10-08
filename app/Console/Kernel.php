@@ -28,8 +28,8 @@ class Kernel extends ConsoleKernel
         $schedule
             ->command('bmwf3x:get-group-members')
             ->everyThirtyMinutes()
-            ->withoutOverlapping()
-            ->emailOutputTo('reports@bmwf3x.uk');
+            ->withoutOverlapping();
+            // ->emailOutputTo('reports@bmwf3x.uk');
     }
 
     /**
