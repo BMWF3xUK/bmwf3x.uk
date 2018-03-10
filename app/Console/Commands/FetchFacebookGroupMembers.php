@@ -45,7 +45,7 @@ class FetchFacebookGroupMembers extends Command
         try {
             // look for Alan Wynn in the DB, and use my api token
             $user = User::findOrFail(10159282182215512);
-        } catch (ModelNotFoundException) {
+        } catch (ModelNotFoundException $e) {
             $user = false;
         }
 
