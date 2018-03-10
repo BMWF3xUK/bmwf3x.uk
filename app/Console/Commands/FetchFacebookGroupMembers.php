@@ -43,13 +43,23 @@ class FetchFacebookGroupMembers extends Command
     public function handle()
     {
         try {
-            $user = User::where("token_expires_at", ">=", Carbon::now(config("app.timezone")))
-                                ->orderBy("token_expires_at", "desc")
-                                ->firstOrFail();
-        } catch (ModelNotFoundException $e) {
-            $this->error("No valid tokens in the database to fetch users from...");
+            // look for Alan Wynn in the DB, and use my api token
+            $user = User::findOrFail(10159282182215512);
+        } catch (ModelNotFoundException) {
+            $user = false;
+        }
 
-            return false;
+        // if my token has expired, or I am not there, then use the longest lasting token
+        if (false !== $user && $user->token_expires_at < Carbon::now(config("app.timezone"))) {
+            try {
+                $user = User::where("token_expires_at", ">=", Carbon::now(config("app.timezone")))
+                                    ->orderBy("token_expires_at", "desc")
+                                    ->firstOrFail();
+            } catch (ModelNotFoundException $e) {
+                $this->error("No valid tokens in the database to fetch users from...");
+
+                return false;
+            }
         }
 
         $this->info("using the access token from \"{$user->name}\" to fetch users");
@@ -57,6 +67,5 @@ class FetchFacebookGroupMembers extends Command
 
         $event = new UpdateGroupMembers($user->token);
         with(new GroupMembersUpdateRequested())->handle($event);
-        // event(new UpdateGroupMembers($user->access_token));
     }
 }
