@@ -54,22 +54,19 @@ class User extends Authenticatable
 
     public static function selectOrCreateFromFacebookUser($fb_user)
     {
-        $user = self::firstOrNew([
+        return self::firstOrCreate([
             "id" => $fb_user->id,
+        ], [
+            "id" => $fb_user->id,
+            "token" => $fb_user->token,
+            "token_expires_in" => $fb_user->expiresIn,
+            "token_expires_at" => Carbon::now(config("app.timezone"))->addSeconds($fb_user->expiresIn),
+            "nickname" => $fb_user->nickname,
+            "name" => $fb_user->name,
+            "email" => $fb_user->email,
+            "avatar" => $fb_user->avatar,
+            "avatar_original" => $fb_user->avatar_original,
         ]);
-
-        $user->id = $fb_user->id;
-        $user->token = $fb_user->token;
-        $user->token_expires_in = $fb_user->expiresIn;
-        $user->token_expires_at = Carbon::now(config("app.timezone"))->addSeconds($fb_user->expiresIn);
-        $user->nickname = $fb_user->nickname;
-        $user->name = $fb_user->name;
-        $user->email = $fb_user->email;
-        $user->avatar = $fb_user->avatar;
-        $user->avatar_original = $fb_user->avatar_original;
-        $user->save();
-
-        return $user;
     }
 
     public function member()
