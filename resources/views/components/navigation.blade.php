@@ -36,18 +36,21 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                {{-- <a href="{{ route("logout") }}" --}}
-                                <a href="/logout"
-                                    onclick="event.preventDefault();
-                                             alert('Not yet implemented');
-                                             /* document.getElementById('logout-form').submit(); */">
-                                    Logout
+                                <a href="https://www.facebook.com/groups/BMWF3XUK/">
+                                    BMW F3X UK
                                 </a>
+                            </li>
 
-                                {{-- <form id="logout-form" action="{{ route("logout") }}" method="POST" style="display: none;"> --}}
-                                <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
+                            <li>
+                                <a href="https://www.facebook.com/groups/BMWF3XWorldwide/">
+                                    BMW F3X Worldwide
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.facebook.com/groups/BMWF2XWorldwide/">
+                                    BMW F2X Worldwide
+                                </a>
                             </li>
                         </ul>
                     </li>

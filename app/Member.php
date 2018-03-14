@@ -18,8 +18,18 @@ class Member extends Model
         "administrator" => "boolean",
     ];
 
+    protected $with = [
+        "groups",
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class, "id", "id");
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany(FacebookGroup::class)
+                    ->using(FacebookGroupMember::class);
     }
 }

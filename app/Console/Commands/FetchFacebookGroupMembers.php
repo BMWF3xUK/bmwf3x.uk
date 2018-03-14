@@ -8,6 +8,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class FetchFacebookGroupMembers extends Command
 {
@@ -42,6 +43,8 @@ class FetchFacebookGroupMembers extends Command
      */
     public function handle()
     {
+        $this->output->setVerbosity(OutputInterface::VERBOSITY_VERY_VERBOSE);
+
         try {
             // look for Alan Wynn in the DB, and use my api token
             $user = User::findOrFail(10159282182215512);

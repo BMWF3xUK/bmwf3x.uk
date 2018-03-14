@@ -39,9 +39,6 @@ return [
         'client_id' => env('FACEBOOK_KEY'),
         'client_secret' => env('FACEBOOK_SECRET'),
         'redirect' => "onboard.facebook.response",
-
-        // BMW F3X UK Owners Club (F30, F31, F32, F33, F34 & F36)
-        'group_id' => 1067824023310213,
     ],
 
 ];

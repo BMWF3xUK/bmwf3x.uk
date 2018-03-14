@@ -8,17 +8,34 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body text-center">
-                    <p>Sorry, you aren't a full member, you will soon be redirected to our facebook group</p>
+                    <p>
+                        Sorry, you aren't a full member, you will soon be redirected to our
+                        <a href="https://www.facebook.com/groups/BMWF3XUK/">
+                            BMW F3X UK on Facebook
+                        </a>
+                    </p>
 
                     <br>
 
-                    <p>If you have just recently been accepted into the group, please allow up to 30minutes for the site to update your membership</p>
+                    <p>If you have just recently been accepted into one of the groups, please allow up to 30minutes for the site to update your membership</p>
 
                     <br>
 
                     <p>
                         <a href="https://www.facebook.com/groups/BMWF3XUK/">
-                            BMWF3XUK on Facebook
+                            BMW F3X UK on Facebook
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="https://www.facebook.com/groups/BMWF3XWorldwide/">
+                            BMW F3X Worldwide on Facebook
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="https://www.facebook.com/groups/BMWF2XWorldwide/">
+                            BMW F2X Worldwide on Facebook
                         </a>
                     </p>
                 </div>
