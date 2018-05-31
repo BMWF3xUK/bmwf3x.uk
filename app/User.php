@@ -71,6 +71,7 @@ class User extends Authenticatable
         if (!$user->is_member) {
             $user->member()->create([
                 "name" => $user->name,
+                "administrator" => false,
             ]);
         }
 
