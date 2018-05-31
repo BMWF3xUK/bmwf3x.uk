@@ -38,6 +38,15 @@
                             BMW F2X Worldwide on Facebook
                         </a>
                     </p>
+
+                    <br>
+                    <br>
+
+                    <p>This site is in Alpha, expect some bugs unfortunately.</p>
+
+                    <br>
+
+                    <p>If you have any issues gaining access please email <a href="mailto:resources@bmwf3x.uk">resources@bmwf3x.uk</a>, Or contact <a href="https://facebook.com/djekl">Alan Wynn (the developer)</a> on Facebook.</p>
                 </div>
             </div>
         </div>
