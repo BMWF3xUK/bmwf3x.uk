@@ -25,10 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule
-            ->command('bmwf3x:get-group-members')
-            ->everyThirtyMinutes()
-            ->withoutOverlapping();
+        // $schedule
+        //     ->command('bmwf3x:get-group-members')
+        //     ->everyThirtyMinutes()
+        //     ->withoutOverlapping();
             // ->emailOutputTo('reports@bmwf3x.uk');
     }
 
