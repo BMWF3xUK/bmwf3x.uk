@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public static function selectOrCreateFromFacebookUser($fb_user)
     {
-        return self::firstOrCreate([
+        $user = self::firstOrCreate([
             "id" => $fb_user->id,
         ], [
             "id" => $fb_user->id,
@@ -66,7 +66,15 @@ class User extends Authenticatable
             "email" => $fb_user->email,
             "avatar" => $fb_user->avatar,
             "avatar_original" => $fb_user->avatar_original,
-        ]);
+        ])->fresh();
+
+        if (!$user->is_member) {
+            $user->member()->create([
+                "name" => $user->name,
+            ]);
+        }
+
+        return $user;
     }
 
     public function member()
